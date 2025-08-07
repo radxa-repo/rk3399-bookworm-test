@@ -17,5 +17,5 @@ If your issue is related to a specific package's usage, you should file issues u
 ```bash
 # Always review the random shell script from the internet!
 # But, here is a convenient one-liner:
-curl -L https://radxa-repo.github.io/rk3399-bookworm-test/install.sh | sh
+curl https://radxa-repo.github.io/rk3399-bookworm-test/install.sh | sh
 ```
