@@ -56,7 +56,7 @@
   "rockchip-alsa-config": "4.0.0-2",
   "rockchip-chromium-x11-utils": "0.2.3",
   "rockchip-iqfiles": "0.2.6",
-  "rockchip-prebuilt": "0.4.3-linux-6.1-stan-rkr5.1-1",
+  "rockchip-prebuilt": "0.4.3-linux-6.1-stan-rkr5.1-2",
   "rockchip-udev": "0.3.3",
   "rsetup": "0.4.17",
   "rtkbt-dkms": "20220330-1",
