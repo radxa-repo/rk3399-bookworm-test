@@ -12,7 +12,7 @@ jobs:
     - name: "Checkout rsdk"
       uses: "actions/checkout@v4"
       with:
-        ref: "e6b11242b5471932a47085114c3465426e604551"
+        ref: "db83743d85149305ea237cdbc7a983e9e67aaf28"
         repository: "RadxaOS-SDK/rsdk"
     - name: "Checkout current repo"
       uses: "actions/checkout@v4"
@@ -65,7 +65,7 @@ jobs:
             cp "$OLDPWD/pkgs.json" ./
             pandoc --from gfm --to html --standalone "$OLDPWD/README.md" --output index.html
             find . > files.list
-            echo "pages=$(realpath .)" >> $GITHUB_OUTPUT
+            echo "pages=$(realpath .)" | tee -a $GITHUB_OUTPUT
         popd
         
         popd
@@ -81,7 +81,7 @@ jobs:
       name: "Deploy to GitHub Pages"
       uses: "actions/deploy-pages@v4"
     - name: "Download Pages artifact"
-      uses: "actions/download-artifact@v4"
+      uses: "actions/download-artifact@v5"
       with:
         name: "github-pages"
     - if: "steps.deploy.outcome == 'success'"
@@ -101,11 +101,13 @@ name: "Publish packages"
     paths:
     - "pkgs.json"
     - "pkgs.lock"
+    - ".github/workflows/build.yaml"
   push:
     branches:
     - "main"
     paths:
     - "pkgs.json"
     - "pkgs.lock"
+    - ".github/workflows/build.yaml"
   workflow_dispatch: {}
 permissions: {}
