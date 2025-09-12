@@ -10,7 +10,7 @@ jobs:
     - env:
         SECRETS: "${{ toJSON(secrets) }}"
       name: "Secret tests"
-      uses: "actions/github-script@v7"
+      uses: "actions/github-script@v8"
       with:
         script: |
           const secrets = JSON.parse(process.env.SECRETS);
@@ -18,12 +18,12 @@ jobs:
               core.setFailed('Required secrets are unset!');
           }
     - name: "Checkout rsdk"
-      uses: "actions/checkout@v4"
+      uses: "actions/checkout@v5"
       with:
-        ref: "db83743d85149305ea237cdbc7a983e9e67aaf28"
+        ref: "e984d24d45cd4acd3e596061365305d5cfe7c0af"
         repository: "RadxaOS-SDK/rsdk"
     - name: "Checkout current repo"
-      uses: "actions/checkout@v4"
+      uses: "actions/checkout@v5"
       with:
         path: ".infra-repo"
         token: "${{secrets.GIT_PUSH_TOKEN}}"
